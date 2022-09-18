@@ -15,6 +15,7 @@ class ConnectionManager:
     async def connect(self, client_id: str, websocket: WebSocket):
         await websocket.accept()
         self.active_connections.append(websocket)
+        print(self.active_connections)
         self.broadcast(f"系統通知: {client_id} 已進入聊天室")
 
     def disconnect(self, websocket: WebSocket):
